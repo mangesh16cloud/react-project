@@ -1,15 +1,14 @@
-FROM nginx:latest
+# Set the base image.
+FROM node:14
 
-# set the working dir for container
-WORKDIR /frontend
-
-# copy the json file first
-COPY ./package.json /frontend
-
-# install npm dependencies
- RUN npm install
+COPY ./build /usr/share/nginx/html
+COPY ./package.json /usr/share/nginx/html
+COPY package-lock.json /usr/share/nginx/html
 
 # copy other project files
-COPY . .
+COPY . . 
+
+RUN npm install
+
 
 CMD [ "npm", "run", "start" ]
