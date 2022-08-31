@@ -1,9 +1,21 @@
 FROM nginx:latest
 
-LABEL maintainer="mangesh"
+# set the working dir for container
+WORKDIR /frontend
 
-COPY ./build /usr/share/nginx/html
+# copy the json file first
+COPY ./package.json /frontend
 
-EXPOSE 3000
+# install npm dependencies
+RUN npm install
 
-CMD ["build", "run"]
+# copy other project files
+COPY . .
+
+# build the folder
+RUN npm run build
+
+# Handle Nginx
+FROM nginx
+COPY --from=builder /frontend/build /usr/share/nginx/html
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
