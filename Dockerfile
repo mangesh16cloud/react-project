@@ -7,13 +7,15 @@ WORKDIR /frontend
 COPY ./package.json /frontend
 
 # install npm dependencies
-# RUN npm install
+ RUN npm install
 
 # copy other project files
 COPY . .
 
+CMD [ "npm", "run", "start" ]
+
 # build the folder
-# RUN npm run build
+ RUN npm run build
 
 # Handle Nginx
 FROM nginx
