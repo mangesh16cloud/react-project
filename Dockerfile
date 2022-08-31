@@ -4,6 +4,6 @@ LABEL maintainer="mangesh"
 
 COPY ./build /usr/share/nginx/html
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["catalina.sh", "run"]
