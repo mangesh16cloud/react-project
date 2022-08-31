@@ -6,4 +6,4 @@ COPY ./build /usr/share/nginx/html
 
 EXPOSE 3000
 
-CMD ["catalina.sh", "run"]
+CMD ["build", "run"]
