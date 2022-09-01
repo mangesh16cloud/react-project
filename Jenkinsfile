@@ -90,7 +90,7 @@ pipeline {
         stage('SMTP notification stage for team phase') {
              
             steps {
-                emailext (attachLog: true, body: '', recipientProviders: [culprits()], subject: 'jenkins notification and BUILD LOG for developers,testers', to: 'aws16cloud@gmail.com,mangesh@bhumiitech.com')
+                emailext (attachLog: true, body: '', recipientProviders: [culprits()], subject: 'jenkins notification and BUILD LOG:$BUILD_NUMBER for developers,testers', to: 'aws16cloud@gmail.com,mangesh@bhumiitech.com')
                
                 //sh "docker -H ssh://ubuntu@10.1.76.15 run -d -p 3001:3000 mangeshsk/samplereactapp"
  
