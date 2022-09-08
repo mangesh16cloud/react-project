@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-           BHUMI ITECH app <code> on React js </code> .
+          Bhumi itech React app <code> on js </code> .
         </p>
         <a
           className="App-link"
@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          To know more about BHUMI ITECH click here
+          To know more about Bhumi itech pvt ltd click here
         </a>
       </header>
     </div>
