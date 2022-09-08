@@ -64,8 +64,8 @@ pipeline {
                 unstash 'source'
                 echo 'unstash successfull'
                 sh 'docker build -t reactdemo:latest .' 
-                sh 'docker tag reactremo mangeshsk/reactremo:latest'
-                sh 'docker tag reactremo mangeshsk/reactremo:$BUILD_NUMBER'
+                sh 'docker tag reactdemo mangeshsk/reactdemo:latest'
+                sh 'docker tag reactdemo mangeshsk/reactdemo:$BUILD_NUMBER'
             }
         }
         stage('Publish image on Docker Hub phase') {
