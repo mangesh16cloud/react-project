@@ -21,10 +21,10 @@ pipeline {
                 sh '/opt/sonar-scanner/bin/sonar-scanner --version'
                 withSonarQubeEnv('sonar') {
                 sh  """/opt/sonar-scanner/bin/sonar-scanner \
-                -Dsonar.projectKey=React \
-		-Dsonar.sources=. \
-		-Dsonar.host.url=http://10.1.76.15:9000 \
-		-Dsonar.login=81ae10e7be774177fd588ce3242a0e97186eca3c"""
+  		-Dsonar.projectKey=React \
+  		-Dsonar.sources=. \
+  		-Dsonar.host.url=http://10.1.76.15:9000 \
+  		-Dsonar.login=81ae10e7be774177fd588ce3242a0e97186eca3c"""
                 stash 'source'
             }
         }
