@@ -63,17 +63,17 @@ pipeline {
             steps {
                 unstash 'source'
                 echo 'unstash successfull'
-                sh 'docker build -t samplereactapp:latest .' 
-                sh 'docker tag samplereactapp mangeshsk/samplereactapp:latest'
-                sh 'docker tag samplereactapp mangeshsk/samplereactapp:$BUILD_NUMBER'
+                sh 'docker build -t ReactDemo:latest .' 
+                sh 'docker tag samplereactapp mangeshsk/ReactDemo:latest'
+                sh 'docker tag samplereactapp mangeshsk/ReactDemo:$BUILD_NUMBER'
             }
         }
         stage('Publish image on Docker Hub phase') {
           
             steps {
                 withDockerRegistry([ credentialsId: "docker-id", url:""  ]) {
-                sh  'docker push mangeshsk/samplereactapp:latest'
-                sh  'docker push mangeshsk/samplereactapp:$BUILD_NUMBER' 
+                sh  'docker push mangeshsk/ReactDemo:latest'
+                sh  'docker push mangeshsk/ReactDemo:$BUILD_NUMBER' 
         }
                   
           }
@@ -83,7 +83,7 @@ pipeline {
             steps {
                 sh 'docker stop c1'
                 sh 'docker container rm c1'
-                sh "docker run -d -p 3001:3000 --name c1 mangeshsk/samplereactapp "
+                sh "docker run -d -p 3001:3000 --name c1 mangeshsk/ReactDemo "
  
             }
         }
