@@ -78,7 +78,7 @@ pipeline {
                   
           }
         } 
-        stage('Run Docker Container on remote server phase ') {
+        stage('Docker Container is alive phase ') {
              
             steps {
                 sh 'docker stop c1'
