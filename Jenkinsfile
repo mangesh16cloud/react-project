@@ -55,7 +55,7 @@ pipeline {
                 echo 'unstash Successful'
                 //sh 'rm -rf * /var/www/React'
                 //sh 'mv /var/www/workspace/React /var/www/'
-                sh 'cd /var/www/workspace/Ract'
+                sh 'cd /var/www/workspace/React'
                 //sh 'npm start -d'
             }
         }
