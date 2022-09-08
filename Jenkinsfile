@@ -17,7 +17,7 @@ pipeline {
         stage('Sonar-analysis phase') {
             steps {
                 unstash 'source'
-                echo 'unstash successful'
+                echo 'unstash is successful'
                 sh '/opt/sonar-scanner/bin/sonar-scanner --version'
                 withSonarQubeEnv('sonar') {
                 sh  """/opt/sonar-scanner/bin/sonar-scanner \
@@ -33,7 +33,7 @@ pipeline {
         stage('Build phase') {
             steps {
                 unstash 'source'
-                echo 'unstash successful'
+                echo 'unstash is Successful'
                 sh 'npm i'
                 sh 'chmod 777 node_modules'
 		        sh 'npm run build'
@@ -52,7 +52,7 @@ pipeline {
         stage ('Deployment phase') {
             steps{
                 unstash 'source'
-                echo 'unstash successful'
+                echo 'unstash Successful'
                 //sh 'rm -rf * /var/www/react'
                 //sh 'mv /var/www/workspace/react /var/www/'
                 sh 'cd /var/www/workspace/react'
@@ -78,7 +78,7 @@ pipeline {
                   
           }
         } 
-        stage('Run Docker container on remote server phase ') {
+        stage('Run Docker Container on remote server phase ') {
              
             steps {
                 sh 'docker stop c1'
@@ -87,7 +87,7 @@ pipeline {
  
             }
         }
-        stage('SMTP notification stage for team phase') {
+        stage('notification phase') {
              
             steps {
                 emailext (attachLog: true, body: '', recipientProviders: [culprits()], subject: 'jenkins notification and BUILD LOG NO:$BUILD_NUMBER for developers,testers', to: 'aws16cloud@gmail.com,mangesh@bhumiitech.com')
